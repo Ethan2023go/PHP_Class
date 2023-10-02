@@ -9,7 +9,8 @@
 
 <body>
     <?php
-    $score = 60;
+    $score = 30
+    ;
     
     echo "我的成績" . $score;
     echo "<br>";
@@ -30,6 +31,7 @@
      {$level="C";}
      if($score>=60 && $score<=69)
      {$level="D";}
+     else {$level="E";}
     
 
     
