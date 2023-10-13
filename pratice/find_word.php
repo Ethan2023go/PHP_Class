@@ -4,7 +4,7 @@ $source="印出尋找到的單字或字母所在句子中的位置";
 $target="尋找";
 
 $flag="沒找到";
-$start=1;
+$start=0;
 
 while($flag=="沒找到"){
     $tmp=mb_substr($source,$start,mb_strlen($target));
