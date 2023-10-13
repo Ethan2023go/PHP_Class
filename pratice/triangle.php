@@ -13,7 +13,9 @@ echo "*****<br>";
 
 echo "<hr>";
 
-for($i=0;$i<5;$i++){
+$amount=10;
+
+for($i=0;$i<$amount;$i++){
     for($j=0;$j<=$i;$j++){
         echo "*";
     }
@@ -24,7 +26,7 @@ for($i=0;$i<5;$i++){
 
 <h3>倒三角</h3>
 <?php
-for($i=4;$i>=0;$i--){
+for($i=$amount-1;$i>=0;$i--){
     for($j=0;$j<=$i;$j++){
         echo "*";
     }
@@ -40,8 +42,8 @@ for($i=4;$i>=0;$i--){
 
 <h3>正三角</h3>
 <?php
-for($i=0;$i<5;$i++){
-    for($j=0;$j<(4-$i);$j++){
+for($i=0;$i<$amount;$i++){
+    for($j=0;$j<($amount-1-$i);$j++){
         echo "&nbsp;";
     }
     for($k=0;$k<($i*2+1);$k++){
@@ -57,8 +59,8 @@ for($i=0;$i<5;$i++){
 <h3>倒正三角形</h3>
 <?php
 
-for($i=4;$i>=0;$i--){
-    for($j=0;$j<(4-$i);$j++){
+for($i=$amount-1;$i>=0;$i--){
+    for($j=0;$j<($amount-1-$i);$j++){
         echo "&nbsp;";
     }
     for($k=0;$k<($i*2+1);$k++){
@@ -73,7 +75,8 @@ for($i=4;$i>=0;$i--){
 
 <h3>菱形</h3>
 <?php
-for($i=0;$i<=9;$i++){
+$mid=floor(($amount*2-1)/2);
+for($i=0;$i<($amount * 2 -1);$i++){
     if($i<=4){
         $tmp=$i;
     }else{
@@ -92,11 +95,11 @@ for($i=0;$i<=9;$i++){
 ?>
 <h3>矩形</h3>
 <?php
-for($i=0;$i<7;$i++){
-    for($j=0;$j<7;$j++){
-        if($i==0 || $i==6){
+for($i=0;$i<$amount;$i++){
+    for($j=0;$j<$amount;$j++){
+        if($i==0 || $i==($amount-1)){
         echo "*";
-    }else if($j==0 || $j==6){
+    }else if($j==0 || $j==($amount-1)){
         echo "*";
     }else{
         echo "&nbsp;";
@@ -108,11 +111,11 @@ for($i=0;$i<7;$i++){
 
 <h3>矩形+對角線</h3>
 <?php
-for($i=0;$i<7;$i++){
-    for($j=0;$j<7;$j++){
-        if($i==0 || $i==6){
+for($i=0;$i<$amount;$i++){
+    for($j=0;$j<$amount;$j++){
+        if($i==0 || $i==($amount-1)){
         echo "*";
-    }else if($j==0 || $j==6 || $j==$i || $i+$j==6){
+    }else if($j==0 || $j==6 || $j==($amount-1)|| $i+$j==($amount-1)){
         echo "*";
     }else{
         echo "&nbsp;";
@@ -125,14 +128,14 @@ for($i=0;$i<7;$i++){
 <h3>矩形對角線(紅色)</h3>
 <?php
 
-for($i=0;$i<7;$i++){
+for($i=0;$i<$amount;$i++){
 
-    for($j=0;$j<7;$j++){
-        if($i==0 || $i==6){
+    for($j=0;$j<$amount;$j++){
+        if($i==0 || $i==($amount-1)){
             echo "*";
-        }else if($j==0 || $j==6){
+        }else if($j==0 || $j==($amount-1)){
             echo "*";
-        }else if($j==$i || $i+$j==6){
+        }else if($j==$i || $i+$j==($amount-1)){
             echo "<span style='color:red'>*</span>";
         }else{    
             echo "&nbsp;";
