@@ -26,7 +26,8 @@ echo $date1.'到'.$date2."有".$days."天";
 <h2>計算下次生日天數</h2>
 <?php
 $date="1974-10-07";
-// $br=strtotime($date); 電腦生日日期瑪
+$br=strtotime($date); 
+// 電腦生日日期瑪
 $diff=strtotime(date("Y")."-".date("m-d",$br));
 $today=strtotime('now');
 if($diff>$today){

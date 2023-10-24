@@ -104,17 +104,7 @@ for($j=0;$j<10;$j++){
 echo "</table>";
 ?>
 
-<h3>自己練</h3>
-<?php
-echo "<table>";
-for($i=0;$i<10;$i++){
-    echo
-}
 
-
-
-echo "</table>";
-?>
 
 
 
