@@ -4,6 +4,7 @@
 date_default_timezone_set('Asia/Tokyo');
 
 echo date ("Y-m-d H:i:s");
+// Y=year m=month d=day His=時分秒
 ?>
 <h2>strtotime</h2>
 <?php
@@ -11,6 +12,7 @@ echo strtotime("now");
 $time=strtotime("now");
 echo "<br>";
 echo date("Y-m-d H:i:s",$time);
+// date ("Y-m-d ,$time) -> 把$time(秒數)轉成人看的懂的YMD格式化格式
 ?>
 
 <?php
@@ -27,9 +29,12 @@ echo $date1.'到'.$date2."有".$days."天";
 <?php
 $date="1974-10-07";
 $br=strtotime($date); 
-// 電腦生日日期瑪
-$diff=strtotime(date("Y")."-".date("m-d",$br));
 $today=strtotime('now');
+// 將$date和$today轉換成秒數
+$diff=strtotime(date("Y")."-".date("m-d",$br));
+// 今年生日的年月日轉換
+// date中不一定是全部的日期格式也可以是任何年月日小時,單個也可使用
+// date("m-d",$br) -> m-d的值來自$br
 if($diff>$today){
     $days=($diff-$today)/(60*60*24);
 }else{
