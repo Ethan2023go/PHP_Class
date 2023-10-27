@@ -42,7 +42,7 @@
     </form>
 
     <h2>檔案上傳</h2>
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="?" method="post" enctype="multipart/form-data">
         <!-- mulitpart (多媒體) 檔案上傳 -->
         <div>
             <label for="acc">帳號</label>
@@ -54,7 +54,7 @@
         </div>
         <div>
             <label for="img">檔案</label>
-            <input type="img" name="password" id="pw" id="pw">
+            <input type="img" name="file" id="img" id="img">
         </div>
         <div>
             <input type="submit" value="送出">
