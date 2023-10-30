@@ -1,0 +1,13 @@
+header {
+  border: 1px solid #00caca;
+  box-shadow: 0 0 5px #00caca;
+  padding: 5px 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
