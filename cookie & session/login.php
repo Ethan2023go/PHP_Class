@@ -48,10 +48,13 @@
         session_start();
     if(isset($_SESSION['error'])){
         echo "<span style='color:red'>".$_SESSION['error']."</span>";
+        unset($_SESSION['error']);
+        // 刪掉session的動作 or 關掉瀏覽器(Client端)
     }
     
     if(isset($_SESSION['login']) && $_SESSION['login']){
         echo($_SESSION['login']). "歡迎你";
+        echo "<a href='logout.php'>登出</a>";
     }else{
 ?>
         <form action="check.php" method="post">
