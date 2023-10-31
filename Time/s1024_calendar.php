@@ -29,6 +29,7 @@ table {
     $thisFirstDay=date("Y-m-1");
     $thisFirstDate=date('w',strtotime($thisFirstDay));
     $thisMonthDays=date("t");
+    // t = 指定月份天數 (28-31)
     $thisLastDay=date("Y-m-$thisMonthDays");
     $weeks=ceil(($thisMonthDays+$thisFirstDate)/7);
     $firstCell=date("Y-m-d",strtotime("-$thisFirstDate days",strtotime($thisFirstDay)));

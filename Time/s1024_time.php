@@ -82,14 +82,18 @@ if(date("N")<=5){
 </ul>
 <?php
 $todayWeek=date("N");
+// 今天是這周的禮拜幾
 $diff=1-$todayWeek;
+// 1=星期一 - 今天(N) 負數也沒關係 以離now最近的星期一為基準
 $lastMonday=strtotime("$diff days");
+// print 上面的答案
 $nextMonday=date("Y-m-d",strtotime("+1 week",$lastMonday));
-
+// 找到這周的基準禮拜一 +1 Week
 for($i=0;$i<5;$i++){
     $nextMonday=date("Y-m-d l",strtotime("+1 week",strtotime($nextMonday)));
     echo $nextMonday;
     echo "<br>";
 }
+// 五圈開跑
 
 ?>

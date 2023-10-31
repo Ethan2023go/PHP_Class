@@ -22,28 +22,47 @@
 
 <body>
     <?php 
-         if(isset($_GET['next'])){
-            $month=$_GET['next'];
-         }
 
-         if(isset($_GET['prev'])){
-            $month=$_GET['prev'];
-         }
-         $month=date("m");
-         echo "<h3 style='text-align:center'>";
-         echo date("西元Y年{$month}月");
-         echo "</h3>";
-         $thisMonth=date("Y");
-         $thisFirstDay=date("Y-{$month}-1");
-         $thisFirstDate=date('w',strtotime($thisFirstDay));
-         $thisMonthDays=date("t");
-         $thisLastDay=date("Y-{$month}-$thisMonthDays");
-         $weeks=ceil(($thisMonthDays+$thisFirstDate)/7);
-         $firstCell=date("Y-m-d",strtotime("-$thisFirstDate days",strtotime($thisFirstDay)));
-    ?>
+if(isset($_GET['month']) && isset($_GET['year'])){
+    $month=$_GET['month'];
+    $year=$_GET['year'];
+}else{
+    $month=date('m');
+    $year=date("Y");
+}
+
+echo "<h3 style='text-align:center'>";
+echo date("西元{$year}年{$month}月");
+echo "</h3>";
+$thisFirstDay=date("{$year}-{$month}-1");
+$thisFirstDate=date('w',strtotime($thisFirstDay));
+$thisMonthDays=date("t");
+$thisLastDay=date("{$year}-{$month}-$thisMonthDays");
+$weeks=ceil(($thisMonthDays+$thisFirstDate)/7);
+$firstCell=date("Y-m-d",strtotime("-$thisFirstDate days",strtotime($thisFirstDay)));
+?>
     <div style='width:264px;display:flex;margin:auto;justify-content:space-between'>
-        <a href='prev=9'>上一個月</a>
-        <a href='next=11'>下一個月</a>
+        <?php
+$nextYear=$year;
+$prevYear=$year;
+if(($month+1)>12){
+    $next=1;
+    $nextYear=$year+1;
+}else{
+    $next=$month+1;
+}
+
+if(($month-1)<1){
+    $prev=12;
+    $prevYear=$year-1;
+}else{
+    $prev=$month-1;
+}
+
+?>
+        <a href="?year=<?=$prevYear;?>&month=<?=$prev;?>">上一個月</a>
+        <a href="?year=<?=$nextYear;?>&month=<?=$next;?>">下一個月</a>
+    
     </div>
     <table style='width:264px;display:block;margin:auto'>
         <tr>
