@@ -1,6 +1,9 @@
 <?php
 $dsn="mysql:host=localhost;charset=utf8;dbname=user";
 $pdo=new PDO($dsn,'root','');
+$acc=htmlspecialchars(trim($_POST['acc']));
+// htmlspecialchars 將一些特殊字元如單引號斜線等去除，轉成不會有害程式碼的字串
+// trim 將空白填進前後達到保護效果
 
 $sql="insert into `users`(`acc`,`password`,`name`,`email`,`address`)
                   values('{$_POST['acc']}','{$_POST['pw']}','{$_POST['name']}','{$_POST['email']}','{$_POST['address']}')";
