@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php  
+include_once "./include.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,8 +39,7 @@
     <div class="container">
         <h1>使用者資料</h1>
         <?php
-        $dsn="mysql:host=localhost;charset=utf8;dbname=member";
-        $pdo=new PDO($dsn,'root','');
+        
         $sql="select * from users where `acc`='{$_SESSION['user']}'";
         $user=$pdo->query($sql)->fetch();
         ?>
@@ -71,7 +72,10 @@
         <div>
             <input class="btn-primary mx-2" type="submit" value="更新">
             <input class="btn btn-warning mx-2" type="reset" value="重置">
-            <input class="btn btn-danger mx-2" type="button" value="Cancel">
+            <input class="btn btn-danger mx-2" type="button" value="Cancel" 
+            onclick="location.href='del_user.php?id<=?=$user['id'];?>'" >
+
+            <!-- onclick 後面通常都接JS -->
         </div>
     
     </form>

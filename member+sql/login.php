@@ -1,12 +1,14 @@
-
 <?php
-session_start();
+ 
+include_once "./include.php";
+
+// session_start();
 // 記得加!!!!
 $acc=$_POST['acc'];
 $pw=$_POST['pw'];
 
-$dsn="mysql:host=;localhost;charset=utf8;user";
-$pdo=new PDO($dsn,'root','');
+// $dsn="mysql:host=;localhost;charset=utf8;user";
+// $pdo=new PDO($dsn,'root','');
 // 串接資料庫
 
 $sql="select * from users where `acc`='$acc' &&`pw`=`$pw`";
