@@ -1,8 +1,9 @@
 <?php
-del('students',['grauate_at'=>'23']);
+del('students',['graduate_at'=>'23']);
+
+
 
 $rows=all('students',['dept'=>'3']);
-
 dd($rows);
 
 function all($table=null,$where='',$other=''){
@@ -131,7 +132,7 @@ function del($table,$id){
     
     if(is_array($id)){
       foreach($id as $col => $value){
-        $tmp[]="`$col`=`$value`";
+        $tmp[]="`$col`='$value'";
       }
       $sql.= join(" && ",$tmp);
     }else if(is_numeric($id)){
@@ -139,8 +140,9 @@ function del($table,$id){
     }else{
         echo"錯誤:參數的資料型態必須是數字或陣列";
     }
+    echo $sql;
 }
-echo $sql;
+
 
 
 function dd($array){
