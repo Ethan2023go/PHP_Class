@@ -1,5 +1,5 @@
 <?php
-include_once "./include.php";
+include_once "../include/connect.php";
 
 $acc=htmlspecialchars(trim($_POST['acc']));
 // htmlspecialchars 將一些特殊字元如單引號斜線等去除，轉成不會有害程式碼的字串
@@ -12,4 +12,4 @@ $pdo->exec($sql);
 
 // header為頭部信息(會先跑) 有很多應用方式，除了連結也能插入各式字串等
 // header只能加入字串
-header("Location:home.php");
+header("Location:../home.php");

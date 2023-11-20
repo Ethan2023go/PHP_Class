@@ -1,7 +1,7 @@
 
 <?php
 
-include_once "./include.php";
+include_once "../include/connect.php";
 
 $sal="update `users` `set` `acc`= '{$_POST['acc']}',
                             'pw'='{$_POST['pw']}',   

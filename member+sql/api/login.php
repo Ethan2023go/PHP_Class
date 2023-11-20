@@ -1,6 +1,6 @@
 <?php
  
-include_once "./include.php";
+include_once "../include/connect.php";
 
 // session_start();
 // 記得加!!!!
@@ -21,9 +21,9 @@ $user=$pdo->query($sql)->fetchColumn();
 
 if($user){
     $_SESSION['user']=$acc;
-    header("location:home.php");
+    header("location:../home.php");
 }else{
-    header('location:login_form.php?error=帳號密碼錯誤');
+    header('location:../login_form.php?error=帳號密碼錯誤');
 }
 // 判斷帳密是否錯誤並導到相關頁面
 ?>

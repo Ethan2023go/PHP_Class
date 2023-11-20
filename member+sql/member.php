@@ -1,5 +1,5 @@
 <?php  
-include_once "./include.php";
+include_once "./include/connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +50,7 @@ include_once "./include.php";
         $sql="select * from users where `acc`='{$_SESSION['user']}'";
         $user=$pdo->query($sql)->fetch();
     ?>
-    <form action="update.php" method="post" class="col-4 m-auto">
+    <form action="./api/update.php" method="post" class="col-4 m-auto">
         <div class="input-group my-1">
             <label class="col-4  input-group-text">帳號:</label>
             <input class="form-control"  type="text" name="acc" id="acc" value="<?=$user['acc'];?>">
