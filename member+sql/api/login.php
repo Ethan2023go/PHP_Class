@@ -19,7 +19,7 @@ $pw=$_POST['pw'];
 // if($user['acc']==$acc && $user['pw']==$pw)
 // 第一次的寫法
 
-$res=total('users',['acc'=>$acc,'pw'=>$pw]);
+$res= total('users',['acc'=>$acc,'pw'=>$pw]);
 
 if($res){
     $_SESSION['user']=$acc;
