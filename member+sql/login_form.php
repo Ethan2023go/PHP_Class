@@ -17,7 +17,7 @@
 <div>  
 <div class="container">
     <div class="bg-info">
-    <form action="./add_user.php" method="POST" class="text-center row" >
+    <form action="./api/add_user.php" method="POST" class="text-center row" >
     <?php
         if(isset($_GET['error'])){
             echo "<spanstyle='color:red'>";

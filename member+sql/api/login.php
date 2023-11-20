@@ -11,15 +11,17 @@ $pw=$_POST['pw'];
 // $pdo=new PDO($dsn,'root','');
 // 串接資料庫
 
-$sql="select * from users where `acc`='$acc' &&`pw`=`$pw`";
+// $sql="select count(*) from users where `acc`='$acc' &&`pw`=`$pw`";
 // $user=$pdo->query($sql)->fetch();第一次寫法
-$user=$pdo->query($sql)->fetchColumn();
+// $user=$pdo->query($sql)->fetchColumn();
 // 從users print一筆資料出來
 
 // if($user['acc']==$acc && $user['pw']==$pw)
 // 第一次的寫法
 
-if($user){
+$res=total('users',['acc'=>$acc,'pw'=>$pw]);
+
+if($res){
     $_SESSION['user']=$acc;
     header("location:../home.php");
 }else{

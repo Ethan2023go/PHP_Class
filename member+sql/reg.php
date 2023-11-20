@@ -11,7 +11,7 @@
     <div id="app" class="container">
     <h2>會員註冊</h2>
     <!-- form表單記得填入導向頁面，另外POST記得大寫!  -->
-    <form action="./add_user.php" method="POST" class="col-4">
+    <form action="./api/add_user.php" method="POST" class="col-4">
      <div>  
         <label class="col-4 input-group my-1">帳號</label>
         <input type="text" name="acc"id="acc">
