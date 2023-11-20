@@ -1,4 +1,5 @@
 <?php
+del('students',['grauate_at'=>'23']);
 
 $rows=all('students',['dept'=>'3']);
 
@@ -61,6 +62,7 @@ function find($table,$id){
             $tmp[]="`$=col`='$value'";
         }
         $sql .=" where " .join(" && ",$tmp);
+        
         }else if(is_numeric($id)){
             $sql .="where `id`='$id'";
         }else{
@@ -104,6 +106,42 @@ function update($table,$id,$cols){
     echo $sql;
     return $pdo->exec($sql);
 }
+
+// insert
+function insert($table,$values){
+    $dsn="mysql:host=localhost;charset=utf8;dbname=school";
+    $pdo=new PDO($dsn,'root','');
+
+    $sql="insert into `$table` ";
+    $cols="(`".join("`,`",array_keys($values))."`)";
+    $vals="('".join("','",$values)."')";
+    
+    $sql=$sql . $cols ." values ".$vals;
+    
+    //echo $sql;
+
+    return $pdo->exec($sql);
+}
+
+// del
+function del($table,$id){
+    $dsn="mysql:host=localhost;charset=utf8;dbname=school";
+    $pdo=new PDO($dsn,'root','');
+    $sql="delete from `$table` where";
+    
+    if(is_array($id)){
+      foreach($id as $col => $value){
+        $tmp[]="`$col`=`$value`";
+      }
+      $sql.= join(" && ",$tmp);
+    }else if(is_numeric($id)){
+        $sql .="where `id`='$id'";
+    }else{
+        echo"錯誤:參數的資料型態必須是數字或陣列";
+    }
+}
+echo $sql;
+
 
 function dd($array){
     echo "<pre>";
