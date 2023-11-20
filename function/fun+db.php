@@ -1,7 +1,5 @@
 <?php
-del('students',['graduate_at'=>'23']);
-
-
+// del('students',['graduate_at'=>'23']);
 
 $rows=all('students',['dept'=>'3']);
 dd($rows);
