@@ -1,5 +1,5 @@
 <?php
-
+include_once "../connect.php";
 // echo $_POST['name'];
 // echo "<br>";
 if(!empty($_FILES['img']['tmp_name'])){
@@ -15,12 +15,15 @@ if(!empty($_FILES['img']['tmp_name'])){
     $filename=date("YmdHis").rand(10000,99999).$subname;
     move_uploaded_file($_FILES['img']['tmp_name'],"../imgs/".$filename);
 
-    $files=['name'=>$filename,
+    $file=['name'=>$filename,
             'type'=>$_FILES['img']['type'],
-                  
-    ]
+            'size'=>$_FILES['img']['size'],
+            'desc'=>$_POST['desc']];
 
-    header("location:../manage.php?img=".$filename);
+    insert('files',$file);
+
+    // header("location:../manage.php?img=".$filename);
+    header("location:../manage.php");
 }else{
     header("location:../upload.php?err=上傳失敗");
 }
