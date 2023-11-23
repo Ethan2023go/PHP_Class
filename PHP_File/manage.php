@@ -42,16 +42,46 @@ $files=all('files');
             <td>上傳時間</td>
         </tr>
     <?php
+    // <!-- 把 $files 每一筆資料變成 $file 這個變數 --> 
     foreach($files as $file){
-    // <!-- 把 $files 每一筆資料變成 $file 這個變數 -->          
+        switch($file['type']){
+            case "image/webp":
+            case "image/jpeg":
+            case "image/png":
+            case "image/gif":
+            case "image/bmp":
+                $imgname="./imgs/".$file['name'];
+            break;
+            case 'msword':
+                $imgname="./icon/wordicon.png";
+            break;
+            case 'msexcel':
+                $imgname="./icon/msexcel.png";
+            break;
+            case 'msppt':
+                $imgname="./icon/msppt.png";
+            break;
+            case 'pdf':
+                $imgname="./icon/pdf.png";
+            break;
+            default:
+                $imgname="./icon/other.png";
+
+        }
+             
     ?>
         <tr>
             <td><?=$file['id'];?></td>
-            <td><img class="thumbs" src="/imgs" alt="" srcset=""><?=$file['name'];?></td>
+            <!-- <td><img class='thumbs' src="./imgs/=$file['name'];"></td> 原本寫法 -->
+            <td><img class='thumbs' src="<?=$imgname;?>"></td>
             <td><?=$file['type'];?></td>
             <td><?=$file['size'];?></td>
             <td><?=$file['desc'];?></td>
             <td><?=$file['create_at'];?></td>
+            <td>
+                <button class="btn btn-info">編輯</button>
+                <button class="btn btn-danger">刪除</button>
+            </td>
         </tr>
     <?php
     }
