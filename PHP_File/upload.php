@@ -25,7 +25,7 @@
          但是文字和檔案內容通常會有不同傳輸路線 -->
 
 <input type="file" name="img" id="">
-<input type="text" name="name" value="描述">
+<input type="text" name="desc" placeholder="請輸入描述">
 <input type="submit" value="上傳">
  </form>
  
@@ -33,7 +33,12 @@
 
 
 <!----建立一個連結來查看上傳後的圖檔---->  
+<?php
 
+if(isset($_GET['img'])){
+    echo "<img src='./imgs/{$_GET['img']}' style='width:300px;height:400px'>";
+}
 
+?>
 </body>
 </html>
