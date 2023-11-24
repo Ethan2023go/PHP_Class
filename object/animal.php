@@ -24,8 +24,8 @@ class Cat extends Animal implements bark{
 }
 
 // class內建工程師常用外掛 一般class一個專案所以會有衝突選項
-$dog=new Dog;
-$cat=new Cat;
+// $dog=new Dog;
+// $cat=new Cat;
 
 echo $dog->b();
 echo "<br>";
