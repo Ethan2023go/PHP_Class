@@ -2,6 +2,7 @@
 date_default_timezone_set("Asia/Taipei");
 $dsn="mysql:host=localhost;charset=utf8;dbname=material";
 $pdo=new PDO($dsn,'root','');
+// new PDO("mysql:host=$servername;dbname=myDB", $username, $password;
 session_start();
 
 
@@ -27,6 +28,7 @@ function all($table = null, $where = '', $other = '')
         $sql .= $other;
         //echo 'all=>'.$sql;
         $rows = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+                                // fetch出來的資料以array的形式產生
         return $rows;
     } else {
         echo "錯誤:沒有指定的資料表名稱";
