@@ -12,7 +12,7 @@ class Animal{
     public function getName(){
         return $this->name;
     }
-
+     
       
 }
 
@@ -24,9 +24,11 @@ echo "<br>";
 $animal->setName('小花');
 echo '顯示名稱:'.$animal->getName();
 echo "<br>";
-$animal->name='阿中';
-echo '顯示名稱:'.$animal->name;
-echo "<br>";
+
+// private 所以無法使用，之後研究
+// $animal->name='阿中';
+// echo '顯示名稱:'.$animal->name;
+// echo "<br>";
 
 
 ?>
