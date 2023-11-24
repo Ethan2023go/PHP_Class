@@ -13,7 +13,7 @@ class Animal{
 }
 
 // 實體化  instant
-$animal=new Animal;
+$animal=new Animal('我是狗');
 
 echo '顯示名稱'.$animal -> name;
 echo "<br>";
@@ -21,6 +21,6 @@ $animal->setName('小花');
 echo '顯示名稱' .$animal->name;
 echo "<br>";
 
-
+echo ('我是狗');
 
 ?>
